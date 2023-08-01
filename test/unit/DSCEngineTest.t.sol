@@ -155,10 +155,11 @@ contract DSCEngineTest is StdCheats, Test {
     }
 
     modifier depositedCollateralAndMintedDsc() {
-        vm.startPrank(USER);
+        // vm.startPrank(USER);
+        vm.prank(USER);
         ERC20Mock(weth).approve(address(dsce), AMOUNT_COLLATERAL);
         dsce.depositCollateralAndMintDsc(weth, AMOUNT_COLLATERAL, AMOUNT_TO_MINT);
-        vm.stopPrank();
+        // vm.stopPrank();
         _;
     }
 
